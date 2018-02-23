@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>catkin</name>
-<<<<<<< HEAD
-  <version>0.6.16</version>
-=======
-  <version>0.6.15</version>
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+  <version>0.7.11</version>
   <description>Low-level build system macros and infrastructure for ROS.</description>
   <maintainer email="dthomas@osrfoundation.org">Dirk Thomas</maintainer>
   <license>BSD</license>
@@ -27,6 +23,7 @@
 
   <build_depend>python-empy</build_depend>
 
+  <build_export_depend>google-mock</build_export_depend>
   <build_export_depend>gtest</build_export_depend>
   <build_export_depend>python-empy</build_export_depend>
   <build_export_depend>python-nose</build_export_depend>

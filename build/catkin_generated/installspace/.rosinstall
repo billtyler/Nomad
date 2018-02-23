@@ -1,6 +1,2 @@
 - setup-file:
-<<<<<<< HEAD
-    local-name: /home/nomad/nomad_ws/install/setup.sh
-=======
-    local-name: /home/edison/nomad_ws/install/setup.sh
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+    local-name: /home/bill/projects/Nomad/install/setup.sh

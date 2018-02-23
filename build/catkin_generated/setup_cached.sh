@@ -7,12 +7,9 @@
 # new environment variables
 
 # modified environment variables
-<<<<<<< HEAD
-export LD_LIBRARY_PATH="/home/nomad/nomad_ws/devel/lib/arm-linux-gnueabihf:/opt/ros/indigo/lib/arm-linux-gnueabihf:/home/nomad/nomad_ws/devel/lib:/opt/ros/indigo/lib"
-export PKG_CONFIG_PATH="/home/nomad/nomad_ws/devel/lib/arm-linux-gnueabihf/pkgconfig:/opt/ros/indigo/lib/arm-linux-gnueabihf/pkgconfig:/home/nomad/nomad_ws/devel/lib/pkgconfig:/opt/ros/indigo/lib/pkgconfig"
-export PWD="/home/nomad/nomad_ws/build"
-=======
-export LD_LIBRARY_PATH="/home/edison/nomad_ws/devel/lib/i386-linux-gnu:/opt/ros/jade/lib/i386-linux-gnu:/home/edison/nomad_ws/devel/lib:/opt/ros/jade/lib"
-export PKG_CONFIG_PATH="/home/edison/nomad_ws/devel/lib/i386-linux-gnu/pkgconfig:/opt/ros/jade/lib/i386-linux-gnu/pkgconfig:/home/edison/nomad_ws/devel/lib/pkgconfig:/opt/ros/jade/lib/pkgconfig"
-export PWD="/home/edison/nomad_ws/build"
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+export CMAKE_PREFIX_PATH="/home/bill/projects/Nomad/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/opt/ros/lunar/lib:/usr/local/cuda-8.0/lib64"
+export PWD="/home/bill/projects/Nomad/build"
+export PYTHONPATH="/opt/ros/lunar/lib/python2.7/dist-packages:/home/bill/coco/coco/PythonAPI:/home/bill/caffe/python"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/bill/projects/Nomad/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/bill/projects/Nomad/src:$ROS_PACKAGE_PATH"

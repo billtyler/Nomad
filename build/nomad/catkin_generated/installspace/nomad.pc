@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-prefix=/home/nomad/nomad_ws/install
-=======
-prefix=/home/edison/nomad_ws/install
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+prefix=/home/bill/projects/Nomad/install
 
 Name: nomad
 Description: Description of nomad
 Version: 0.0.0
-Cflags: 
-<<<<<<< HEAD
-Libs: -L/home/nomad/nomad_ws/install/lib 
-=======
-Libs: -L/home/edison/nomad_ws/install/lib 
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+Cflags: -I/home/bill/projects/Nomad/install/include
+Libs: -L/home/bill/projects/Nomad/install/lib 
 Requires: 

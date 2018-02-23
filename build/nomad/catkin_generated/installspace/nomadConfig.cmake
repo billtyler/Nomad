@@ -67,23 +67,14 @@ set(nomad_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-<<<<<<< HEAD
-  set(nomad_SOURCE_PREFIX /home/nomad/nomad_ws/src/nomad)
-  set(nomad_DEVEL_PREFIX /home/nomad/nomad_ws/devel)
-=======
-  set(nomad_SOURCE_PREFIX /home/edison/nomad_ws/src/nomad)
-  set(nomad_DEVEL_PREFIX /home/edison/nomad_ws/devel)
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+  set(nomad_SOURCE_PREFIX /home/bill/projects/Nomad/src/nomad)
+  set(nomad_DEVEL_PREFIX /home/bill/projects/Nomad/devel)
   set(nomad_INSTALL_PREFIX "")
   set(nomad_PREFIX ${nomad_DEVEL_PREFIX})
 else()
   set(nomad_SOURCE_PREFIX "")
   set(nomad_DEVEL_PREFIX "")
-<<<<<<< HEAD
-  set(nomad_INSTALL_PREFIX /home/nomad/nomad_ws/install)
-=======
-  set(nomad_INSTALL_PREFIX /home/edison/nomad_ws/install)
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+  set(nomad_INSTALL_PREFIX /home/bill/projects/Nomad/install)
   set(nomad_PREFIX ${nomad_INSTALL_PREFIX})
 endif()
 
@@ -100,26 +91,26 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(nomad_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(nomad_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
+  if(NOT " " STREQUAL " ")
+    set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
+  elseif(NOT " " STREQUAL " ")
+    set(_report "Check the website '' for information and consider reporting the problem.")
+  else()
+    set(_report "Report the problem to the maintainer 'nomad <jcicolani@gmail.com>' and request to fix the problem.")
+  endif()
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
     elseif("${idir} " STREQUAL "include ")
       get_filename_component(include "${nomad_DIR}/../../../include" ABSOLUTE)
       if(NOT IS_DIRECTORY ${include})
-<<<<<<< HEAD
-        message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'nomad <jcicolani@gmail.com>' to fix it.")
+        message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/nomad/nomad_ws/install/${idir}'.  Ask the maintainer 'nomad <jcicolani@gmail.com>' to fix it.")
-=======
-        message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'edison <edison@todo.todo>' to fix it.")
-      endif()
-    else()
-      message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/edison/nomad_ws/install/${idir}'.  Ask the maintainer 'edison <edison@todo.todo>' to fix it.")
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+      message(FATAL_ERROR "Project 'nomad' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/bill/projects/Nomad/install/${idir}'.  ${_report}")
     endif()
     _list_append_unique(nomad_INCLUDE_DIRS ${include})
   endforeach()
@@ -138,11 +129,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-<<<<<<< HEAD
-    foreach(path /home/nomad/nomad_ws/install/lib;/home/nomad/nomad_ws/devel/lib;/opt/ros/indigo/lib)
-=======
-    foreach(path /home/edison/nomad_ws/install/lib;/home/edison/nomad_ws/devel/lib;/opt/ros/jade/lib)
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+    foreach(path /home/bill/projects/Nomad/install/lib;/opt/ros/lunar/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -165,7 +152,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(nomad_EXPORTED_TARGETS "")
+set(nomad_EXPORTED_TARGETS "nomad_generate_messages_cpp;nomad_generate_messages_eus;nomad_generate_messages_lisp;nomad_generate_messages_nodejs;nomad_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${nomad_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -182,12 +169,12 @@ foreach(depend ${depends})
   if(${count} EQUAL 1)
     # simple dependencies must only be find_package()-ed once
     if(NOT ${nomad_dep}_FOUND)
-      find_package(${nomad_dep} REQUIRED)
+      find_package(${nomad_dep} REQUIRED NO_MODULE)
     endif()
   else()
     # dependencies with components must be find_package()-ed again
     list(REMOVE_AT depend_list 0)
-    find_package(${nomad_dep} REQUIRED ${depend_list})
+    find_package(${nomad_dep} REQUIRED NO_MODULE ${depend_list})
   endif()
   _list_append_unique(nomad_INCLUDE_DIRS ${${nomad_dep}_INCLUDE_DIRS})
 
@@ -202,7 +189,7 @@ foreach(depend ${depends})
   list(APPEND nomad_EXPORTED_TARGETS ${${nomad_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "nomad-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${nomad_DIR}/${extra})
