@@ -1,6 +1,2 @@
-nomad
-<<<<<<< HEAD
--DCATKIN_DEVEL_PREFIX=/home/nomad/nomad_ws/devel -DCMAKE_INSTALL_PREFIX=/home/nomad/nomad_ws/install -G Unix Makefiles
-=======
--DCATKIN_DEVEL_PREFIX=/home/edison/nomad_ws/devel -DCMAKE_INSTALL_PREFIX=/home/edison/nomad_ws/install -G Unix Makefiles
->>>>>>> c894deaf8f51fc464f792dfd76aec936b4ce0648
+nomad:razor_imu_9dof
+-DCATKIN_DEVEL_PREFIX=/home/bill/projects/Nomad/devel -DCMAKE_INSTALL_PREFIX=/home/bill/projects/Nomad/install -G Unix Makefiles
